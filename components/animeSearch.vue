@@ -2,10 +2,12 @@
   <div class="mg-5">
       <label>Japanese Name</label>
       <input type="text" class="border-2 bg-slate-500 text-black" placeholder="Search Anime" v-model="jpName">
-      <button type="button" @click="searchAnime">Search</button>
+      <button type="button" @click="searchAnime" class="btn">Search</button>
   </div>
-  <div>
-    <p>{{ Anime }}</p>
+  <div class="grid grid-cols-2 gap-5">
+    <div v-for="a in Anime">
+      <AnimeCard :Anime="a" />
+    </div>    
   </div>
 </template>
 
@@ -14,7 +16,7 @@ export default {
   data() {
     return {
       jpName: null,
-      Anime: null
+      Anime: []
     }
   },
   methods: {
