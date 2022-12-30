@@ -1,7 +1,14 @@
 <template>
   <div>
-    <h1 class="text-5xl font-bold shadow-lg m-5">Japan Database</h1>
-    <AnimeSearch />
+    <header class="shadow-sm bg-white">
+      <nav class="container mx-auto p-4 flex justify-between">
+        <h1 class="text-3xl font-bold">Japan Database</h1>
+        <NuxtLink to="/addAnime" class="btn">Add Anime</NuxtLink>
+      </nav>
+    </header>
+  </div>
+  <div>
+    <AnimeSearch />    
   </div>
 </template>
 
