@@ -1,4 +1,4 @@
-import animeSchema from './Schemas'
+import Anime from './Schemas'
 
 export default defineEventHandler(async (event) => {
 
@@ -6,10 +6,10 @@ export default defineEventHandler(async (event) => {
   const { id } = await readBody(event)
 
   try {
-    const anime = await animeSchema.deleteOne({
+    const del = await Anime.deleteOne({
       _id: id
     })
-    console.log(id)
+    console.log(del)
   } catch (error) {
     console.log(error.message)
   }

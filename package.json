@@ -12,6 +12,10 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
-    "mongoose": "^6.8.2"
+    "filepond": "^4.30.4",
+    "filepond-plugin-file-validate-type": "^1.2.8",
+    "filepond-plugin-image-preview": "^4.6.11",
+    "mongoose": "^6.8.2",
+    "vue-filepond": "^7.0.3"
   }
 }

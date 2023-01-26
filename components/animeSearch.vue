@@ -1,13 +1,13 @@
 <template>
   <div class="mg-5">
       <label>Japanese Name</label>
-      <input type="text" class="border-2 bg-slate-500 text-black" placeholder="Search Anime" v-model="jpName">
+      <input type="text" class="border-2 bg-slate-500 text-black" placeholder="Search Anime" v-model="Name">
       <button type="button" @click="searchAnime" class="btn">Search</button>
   </div>
   <div class="grid grid-cols-2 gap-5">
     <div v-for="a in Anime">
       <AnimeCard :Anime="a" />
-    </div>    
+    </div>
   </div>
 </template>
 
@@ -15,7 +15,7 @@
 export default {
   data() {
     return {
-      jpName: null,
+      Name: null,
       Anime: []
     }
   },
@@ -23,11 +23,14 @@ export default {
     searchAnime() {
       const { data: Anime } = useFetch('/api/db/findAnime', {
         method: 'post',
-        body: { jpName: this.jpName},
+        body: { Name: this.Name }
       })
       this.Anime = Anime
       }
-    }
+    },
+  mounted () {
+    this.searchAnime()
+  }
 }
 </script>
 

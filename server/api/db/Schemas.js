@@ -1,18 +1,16 @@
 const mongoose = require("mongoose")
 
 const seasonSchema = new mongoose.Schema({
-  Season1: {episodes: Number, dropped: Date, finished: Date, Airing: Boolean},
-  Season2: {episodes: Number, dropped: Date, finished: Date, Airing: Boolean},
-  Season3: {episodes: Number, dropped: Date, finished: Date, Airing: Boolean},
-  Season4: {episodes: Number, dropped: Date, finished: Date, Airing: Boolean},
-  Season5: {episodes: Number, dropped: Date, finished: Date, Airing: Boolean},
-  Season6: {episodes: Number, dropped: Date, finished: Date, Airing: Boolean},
-  Season7: {episodes: Number, dropped: Date, finished: Date, Airing: Boolean},
-  Season8: {episodes: Number, dropped: Date, finished: Date, Airing: Boolean},
-  Season9: {episodes: Number, dropped: Date, finished: Date, Airing: Boolean},
-  Season10: {episodes: Number, dropped: Date, finished: Date, Airing: Boolean},
-  Season11: {episodes: Number, dropped: Date, finished: Date, Airing: Boolean},
+  seasonNumber: {
+    type: Number,
+    required: true
+  },
+  seasonName: String,
+  episodes: Number,
+  releaseDate: Date,
+  finishedDate: Date
 })
+module.exports = mongoose.model("Seasons", seasonSchema)
 
 const animeSchema = new mongoose.Schema({
   jpName: {
@@ -21,7 +19,10 @@ const animeSchema = new mongoose.Schema({
   },
   enName: String,
   deName: String,
-  Seasons: seasonSchema,
+  seasons: {
+    type: mongoose.ObjectId,
+    ref: 'Seasons'
+  },
   entryCreated: {
     type: Date,
     immutable: true,
